@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/context";
+import { useNavigate } from "react-router-dom";
 import FormRow from "../components/FormRow";
 import Alert from "../components/Alert";
 
@@ -12,8 +13,9 @@ const initialState = {
 
 const Register = () => {
   const [values, setValues] = useState(initialState);
-  const { displayAlert, showAlert } = useAppContext();
-  console.log(displayAlert);
+  const { isLoading, displayAlert, showAlert, registerUser, user } =
+    useAppContext();
+  const navigate = useNavigate();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -30,7 +32,21 @@ const Register = () => {
       displayAlert();
       return;
     }
+    const currentuser = { name, email, password };
+    if (isMember) {
+      console.log("Already member");
+    } else {
+      registerUser(currentuser);
+    }
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    }
+  }, [user, navigate]);
 
   return (
     <React.Fragment>
@@ -60,7 +76,12 @@ const Register = () => {
           handleChange={handleChange}
           labelText="Password"
         />
-        <button type="submit" onClick={onSubmit} className="btn btn-block">
+        <button
+          type="submit"
+          onClick={onSubmit}
+          className="btn btn-block"
+          disabled={isLoading}
+        >
           Submit
         </button>
         <p id="is-member">

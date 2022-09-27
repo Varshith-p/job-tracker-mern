@@ -33,6 +33,40 @@ form {
   border-radius: 0.25rem;
 }
 
+.banner {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  margin: 1rem;
+  width: 15rem;
+}
+
+ul {
+  display: inline;
+}
+
+.li {
+  display: inline;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.li:hover {
+  color: #2cb1bc !important;
+  font-weight: 500 !important;
+}
+
+/* .main-content {
+  margin: 20rem auto;
+} */
+
 .btn {
   color: white;
   background-color: #2cb1bc;
@@ -63,6 +97,11 @@ form {
 .alert-danger {
   color: #842029;
   background-color: #f8d7da;
+}
+
+.alert-danger {
+  color: #0f5132;
+  background-color: #d1e7dd;
 }
 
 #is-member {

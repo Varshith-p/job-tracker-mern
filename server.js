@@ -1,16 +1,25 @@
 const express = require("express");
 const app = express();
-
-require("express-async-errors");
 require("dotenv").config();
-
-const notFoundMiddleware = require("./middleware/not-found");
-const errorHandlerMiddleware = require("./middleware/error-handler");
+require("express-async-errors");
+const morgan = require("morgan");
 
 const connectDB = require("./db/connect");
 
 const authRouter = require("./routes/authRoutes");
 const jobsRouter = require("./routes/jobsRoutes");
+
+const notFoundMiddleware = require("./middleware/not-found");
+const errorHandlerMiddleware = require("./middleware/error-handler");
+
+if (process.env.NODE_ENV !== "production") {
+  app.use(morgan("dev"));
+}
+
+app.use(express.json());
+
+const cors = require("cors");
+app.use(cors());
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", jobsRouter);

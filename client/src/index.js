@@ -5,6 +5,7 @@ import App from "./App";
 import { AppProvider } from "./context/context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+console.log(root);
 root.render(
   <React.StrictMode>
     <AppProvider>
