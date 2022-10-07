@@ -8,6 +8,7 @@ import {
   AllJobs,
   AddJob,
   AppliedJobs,
+  Profile,
 } from "./pages/home";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="all-jobs" element={<AllJobs />} />
           <Route path="applied-jobs" element={<AppliedJobs />} />
           <Route path="add-job" element={<AddJob />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="/landing" element={<Landing />} />
         <Route path="/register" element={<Register />} />
