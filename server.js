@@ -11,6 +11,7 @@ const jobsRouter = require("./routes/jobsRoutes");
 
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
+const authenticateUser = require("./middleware/auth");
 
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
@@ -22,7 +23,7 @@ const cors = require("cors");
 app.use(cors());
 
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/jobs", jobsRouter);
+app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

@@ -31,7 +31,7 @@ const AppProvider = ({ children }) => {
   };
 
   const setupUser = async ({ currentUser, endPoint, alertText }) => {
-    console.log(currentUser);
+    // console.log(currentUser);
     dispatch({ type: "SETUP_USER_BEGIN" });
     try {
       const { data } = await axios.post(
@@ -67,6 +67,50 @@ const AppProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
+  const authFetch = axios.create({
+    baseURL: "/api/v1",
+  });
+
+  authFetch.interceptors.request.use(
+    (config) => {
+      config.headers.common["Authorization"] = `Bearer ${state.token}`;
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+
+  authFetch.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      // console.log(error.response);
+      if (error.response.status === 401) {
+        logoutUser();
+      }
+      return Promise.reject(error);
+    }
+  );
+
+  const updateUser = async (currentUser) => {
+    // console.log(currentUser);
+    dispatch({ type: "UPDATE_USER_BEGIN" });
+    try {
+      const { data } = await authFetch.patch("/auth/updateUser", currentUser);
+      const { user, token } = data;
+      dispatch({ type: "UPDATE_USER_SUCCESS", payload: { user, token } });
+      addUserToLocalStorage(user, token);
+    } catch (error) {
+      dispatch({
+        type: "UPDATE_USER_ERROR",
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+
   const logoutUser = () => {
     dispatch({ type: "LOGOUT_USER" });
     removeUserFromLocalStorage();
@@ -78,6 +122,7 @@ const AppProvider = ({ children }) => {
         ...state,
         displayAlert,
         setupUser,
+        updateUser,
         logoutUser,
       }}
     >
