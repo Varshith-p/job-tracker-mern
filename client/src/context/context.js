@@ -21,6 +21,10 @@ const initialState = {
   statusOptions: ["pending", "interview", "declined"],
   status: "pending",
   jobLocation: "hyderabad",
+  jobs: [],
+  totalJobs: 0,
+  numOfPages: 1,
+  page: 1,
 };
 
 const AppContext = React.createContext();
@@ -155,6 +159,62 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const getJobs = async () => {
+    let url = `/jobs`;
+    dispatch({ type: "GET_JOBS_BEGIN" });
+    try {
+      const { data } = await authFetch(url);
+      const { jobs, totalJobs, numOfPages } = data;
+      dispatch({
+        type: "GET_JOBS_SUCCESS",
+        payload: { jobs, totalJobs, numOfPages },
+      });
+    } catch (error) {
+      logoutUser();
+    }
+    clearAlert();
+  };
+
+  const setEditJob = (id) => {
+    console.log(`set edit job: ${id}`);
+    dispatch({ type: "SET_EDIT_JOB", payload: { id } });
+  };
+
+  const editJob = async () => {
+    // console.log("edit job");
+    dispatch({ type: "EDIT_JOB_BEGIN" });
+    try {
+      const { position, company, jobLocation, jobType, status } = state;
+      await authFetch.patch(`/jobs/${state.editJobId}`, {
+        company,
+        position,
+        jobLocation,
+        jobType,
+        status,
+      });
+      dispatch({ type: "EDIT_JOB_SUCCESS" });
+      dispatch({ type: "CLEAR_VALUES" });
+    } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+        type: "EDIT_JOB_ERROR",
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+
+  const deleteJob = async (jobId) => {
+    // console.log(`delete job: ${id}`);
+    dispatch({ type: "DELETE_JOB_BEGIN" });
+    try {
+      await authFetch.delete(`/jobs/${jobId}`);
+      getJobs();
+    } catch (error) {
+      logoutUser();
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -166,6 +226,10 @@ const AppProvider = ({ children }) => {
         handleChange,
         clearValues,
         createJob,
+        getJobs,
+        setEditJob,
+        editJob,
+        deleteJob,
       }}
     >
       {children}

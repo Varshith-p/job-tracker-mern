@@ -156,3 +156,102 @@ h3 {
     left: 2rem;
   }
 }
+
+.jobs-container {
+  width: 95vw;
+  margin: 2em auto;
+}
+
+.job-box {
+  background-color: white;
+  display: inline-block;
+  width: 45vw;
+  border-radius: 0.3em;
+  margin-top: 1rem;
+  margin-right: 2em;
+  box-shadow: 0 2px 6px -2px;
+  height: 280px;
+}
+
+.main-icon {
+  background-color: #10c79c;
+  text-align: center;
+  text-transform: capitalize;
+  display: inline-block;
+  margin: 1em;
+  width: 3em;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  font-size: larger;
+  line-height: 3em;
+}
+
+.info {
+  display: inline-block;
+  position: relative;
+  top: 1em;
+  text-transform: capitalize;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: 1em;
+}
+
+.job-info {
+  display: inline-block;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-top: 1.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  width: 18vw;
+}
+
+.icon {
+  color: #829ab1;
+  margin: 1em;
+}
+
+.job-info-text {
+  text-transform: capitalize;
+}
+
+.status {
+  width: 8em;
+  border-radius: 0.2em;
+  display: inline-block;
+  margin: 0.5em 2.5em;
+  text-align: center;
+  line-height: 2em;
+  font-weight: bold;
+  background-color: #10c79c;
+}
+
+.pending {
+  background-color: rgb(252, 239, 199);
+  color: rgb(233, 185, 73);
+}
+
+.interview {
+  background-color: rgb(224, 232, 249);
+  color: rgb(100, 122, 203);
+}
+
+.declined {
+  background-color: rgb(255, 238, 238);
+  color: rgb(214, 106, 106);
+}
+
+.edit-btn {
+  margin-left: 2.5em;
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.delete-btn {
+  margin-left: 1em;
+  background-color: #f8d7da;
+  color: #842029;
+}
