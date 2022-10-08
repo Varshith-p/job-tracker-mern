@@ -1,8 +1,8 @@
 import React from "react";
 
-const FormRow = ({ type, name, value, handleChange, labelText }) => {
+const FormRow = ({ type, name, value, handleChange, labelText, className }) => {
   return (
-    <div className="form-row">
+    <div className={className}>
       <label htmlFor={name} className="form-label">
         {labelText || name}
       </label>

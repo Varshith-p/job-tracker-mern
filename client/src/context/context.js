@@ -12,6 +12,15 @@ const initialState = {
   alertText: "",
   user: user ? JSON.parse(user) : null,
   token: token,
+  isEditing: false,
+  editJobId: "",
+  position: "",
+  company: "",
+  jobTypeOptions: ["full-time", "part-time", "remote", "internship"],
+  jobType: "full-time",
+  statusOptions: ["pending", "interview", "declined"],
+  status: "pending",
+  jobLocation: "hyderabad",
 };
 
 const AppContext = React.createContext();
@@ -116,6 +125,36 @@ const AppProvider = ({ children }) => {
     removeUserFromLocalStorage();
   };
 
+  const handleChange = ({ name, value }) => {
+    dispatch({ type: "HANDLE_CHANGE", payload: { name, value } });
+  };
+
+  const clearValues = () => {
+    dispatch({ type: "CLEAR_VALUES" });
+  };
+
+  const createJob = async () => {
+    dispatch({ type: "CREATE_JOB_BEGIN" });
+    try {
+      const { position, company, jobLocation, jobType, status } = state;
+      await authFetch.post("/jobs", {
+        company,
+        position,
+        jobLocation,
+        jobType,
+        status,
+      });
+      dispatch({ type: "CREATE_JOB_SUCCESS" });
+      dispatch({ type: "CLEAR_VALUES" });
+    } catch (error) {
+      dispatch({
+        type: "CREATE_JOB_ERROR",
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -124,6 +163,9 @@ const AppProvider = ({ children }) => {
         setupUser,
         updateUser,
         logoutUser,
+        handleChange,
+        clearValues,
+        createJob,
       }}
     >
       {children}

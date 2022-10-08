@@ -73,6 +73,52 @@ const reducer = (state, action) => {
       token: null,
     };
   }
+  if (action.type === "HANDLE_CHANGE") {
+    // console.log(action.payload.name, action.payload.value);
+    return {
+      ...state,
+      [action.payload.name]: action.payload.value,
+    };
+  }
+  if (action.type === "CLEAR_VALUES") {
+    const initialState = {
+      isEditing: false,
+      editJobId: "",
+      position: "",
+      company: "",
+      jobType: "full-time",
+      status: "pending",
+      jobLocation: "hyderabad",
+    };
+    return {
+      ...state,
+      ...initialState,
+    };
+  }
+  if (action.type === "CREATE_JOB_BEGIN") {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === "CREATE_JOB_SUCCESS") {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "New job created!",
+    };
+  }
+  if (action.type === "CREATE_JOB_ERROR") {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
   throw new Error(`No such action: ${action.type}`);
 };
 

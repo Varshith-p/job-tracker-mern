@@ -58,7 +58,7 @@ const Register = () => {
 
   return (
     <React.Fragment>
-      <form>
+      <form style={{ width: "60vw", maxWidth: "450px" }}>
         <h3>{values.isMember ? "Login" : "Register"}</h3>
         {showAlert && <Alert />}
         {!values.isMember && (
@@ -68,6 +68,7 @@ const Register = () => {
             value={values.name}
             handleChange={handleChange}
             labelText="Name"
+            className="form-row"
           />
         )}
         <FormRow
@@ -76,6 +77,7 @@ const Register = () => {
           value={values.email}
           handleChange={handleChange}
           labelText="Email"
+          className="form-row"
         />
         <FormRow
           type="password"
@@ -83,6 +85,7 @@ const Register = () => {
           value={values.password}
           handleChange={handleChange}
           labelText="Password"
+          className="form-row"
         />
         <button
           type="submit"

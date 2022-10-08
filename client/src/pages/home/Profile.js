@@ -21,7 +21,10 @@ const Profile = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        style={{ width: "60vw", maxWidth: "450px" }}
+      >
         <h3>profile </h3>
         {showAlert && <Alert />}
         <FormRow
