@@ -77,6 +77,7 @@ const reducer = (state, action) => {
     // console.log(action.payload.name, action.payload.value);
     return {
       ...state,
+      page: 1,
       [action.payload.name]: action.payload.value,
     };
   }
@@ -167,6 +168,21 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: "danger",
       alertText: action.payload.msg,
+    };
+  }
+  if (action.type === "CLEAR_FILTERS") {
+    return {
+      ...state,
+      search: "",
+      searchStatus: "all",
+      searchType: "all",
+      sort: "latest",
+    };
+  }
+  if (action.type === "CHANGE_PAGE") {
+    return {
+      ...state,
+      page: action.payload.page,
     };
   }
   throw new Error(`No such action: ${action.type}`);

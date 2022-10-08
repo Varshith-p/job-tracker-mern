@@ -45,7 +45,6 @@ const login = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  console.log("controller", req.body);
   const { email, name, lastName } = req.body;
   if (!email || !name || !lastName) {
     throw new BadRequestError("Provide all the details");
@@ -56,9 +55,8 @@ const updateUser = async (req, res) => {
   user.lastName = lastName;
   await user.save();
 
-  const token = await user.createJWT();
+  const token = user.createJWT();
   res.status(StatusCodes.OK).json({ user, token });
 };
 
-// export { register, login, updateUser };
 module.exports = { register, login, updateUser };

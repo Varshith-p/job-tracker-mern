@@ -21,6 +21,11 @@ const initialState = {
   statusOptions: ["pending", "interview", "declined"],
   status: "pending",
   jobLocation: "hyderabad",
+  search: "",
+  searchStatus: "all",
+  searchType: "all",
+  sort: "latest",
+  sortOptions: ["latest", "oldest", "a-z", "z-a"],
   jobs: [],
   totalJobs: 0,
   numOfPages: 1,
@@ -160,7 +165,11 @@ const AppProvider = ({ children }) => {
   };
 
   const getJobs = async () => {
-    let url = `/jobs`;
+    const { page, search, searchStatus, searchType, sort } = state;
+    let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
+    if (search) {
+      url = url + `&search=${search}`;
+    }
     dispatch({ type: "GET_JOBS_BEGIN" });
     try {
       const { data } = await authFetch(url);
@@ -215,6 +224,14 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const clearFilters = () => {
+    dispatch({ type: "CLEAR_FILTERS" });
+  };
+
+  const changePage = (page) => {
+    dispatch({ type: "CHANGE_PAGE", payload: { page } });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -230,6 +247,8 @@ const AppProvider = ({ children }) => {
         setEditJob,
         editJob,
         deleteJob,
+        clearFilters,
+        changePage,
       }}
     >
       {children}

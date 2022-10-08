@@ -5,7 +5,7 @@ body {
 }
 
 form {
-  width: 80vw;
+  width: 85vw;
   margin: 3rem auto;
   padding: 2rem 2.5rem;
   background-color: white;
@@ -75,6 +75,19 @@ form {
 .clear-btn:hover {
   color: white !important;
   background-color: black !important;
+}
+
+.clear-filters-btn {
+  width: 23vw;
+  background-color: #f8d7da;
+  color: #842029;
+  position: relative;
+  bottom: 0.3em;
+}
+
+.clear-filters-btn:hover {
+  background-color: #842029 !important;
+  color: white !important;
 }
 
 .btn-block {
@@ -158,19 +171,28 @@ h3 {
 }
 
 .jobs-container {
-  width: 95vw;
+  width: 87vw;
   margin: 2em auto;
+}
+
+h2.jobs-container {
+  width: 85vw;
+  margin: auto;
+  color: black;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .job-box {
   background-color: white;
   display: inline-block;
-  width: 45vw;
+  width: 40vw;
   border-radius: 0.3em;
   margin-top: 1rem;
+  margin-left: 0.8em;
   margin-right: 2em;
   box-shadow: 0 2px 6px -2px;
-  height: 280px;
+  height: 46vh;
 }
 
 .main-icon {
@@ -204,8 +226,8 @@ h3 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   margin-top: 1.5em;
-  margin-left: 1.5em;
-  margin-right: 1.5em;
+  margin-left: 0.8em;
+  margin-right: 0.8em;
   width: 18vw;
 }
 
@@ -254,4 +276,51 @@ h3 {
   margin-left: 1em;
   background-color: #f8d7da;
   color: #842029;
+}
+
+.pages-container {
+  /* position: absolute;
+  right: 1em; */
+  width: 80vw;
+  margin-top: 2em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.prev-btn,
+.next-btn {
+  display: inline;
+}
+
+.pages {
+  display: inline-block;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.page-btn {
+  background-color: #00000000;
+  color: #2cb1bc;
+}
+.page-btn-active {
+  /* background-color: #2cb1bc; */
+  background-color: #2cb1bc !important;
+  color: white !important;
+}
+
+.loading {
+  width: 6em;
+  height: 6em;
+  border: 5px solid #829ab1;
+  border-top-color: #2cb1bc;
+  border-radius: 50%;
+  animation: spinner 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
 }
