@@ -4,8 +4,6 @@ require("dotenv").config();
 require("express-async-errors");
 const morgan = require("morgan");
 
-const { dirname } = require("path");
-const { fileURLToPath } = require("url");
 const path = require("path");
 
 const connectDB = require("./db/connect");
@@ -22,7 +20,6 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
