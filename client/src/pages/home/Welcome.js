@@ -10,8 +10,8 @@ const Welcome = () => {
       <div className="text">
         <h2>Welcome, {user.name}</h2>
         <p>
-          Take a look at all <br />
-          the available jobs here. <br />
+          Take a look at the <br />
+          available jobs here. <br />
           <Link to="/all-jobs" className="btn" style={{ marginTop: "1em" }}>
             All jobs
           </Link>

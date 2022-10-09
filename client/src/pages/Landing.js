@@ -20,8 +20,8 @@ const Landing = () => {
         <h2>Job tracker</h2>
         <p>
           Welcome to the one stop for all your <br />
-          job needs. Check and apply for any
-          <br /> job from one place. <br />
+          job needs. Keep track of all your
+          <br /> jobs from one place. <br />
           <Link to="/register" className="btn" style={{ marginTop: "1em" }}>
             Login/Register
           </Link>

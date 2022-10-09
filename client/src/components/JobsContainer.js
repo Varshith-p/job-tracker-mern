@@ -4,22 +4,32 @@ import Job from "./Job";
 import Loading from "./Loading";
 import PageBtnContainer from "./PageBtnContainer";
 
-const JobsContainer = () => {
+const JobsContainer = ({ allJobs }) => {
   const {
     jobs,
     totalJobs,
     page,
     numOfPages,
     getJobs,
+    getAllJobs,
     isLoading,
     search,
     searchType,
     searchStatus,
     sort,
   } = useAppContext();
+
   useEffect(() => {
-    getJobs();
+    if (!allJobs) {
+      getJobs();
+    }
   }, [page, search, searchStatus, searchType, sort]);
+
+  useEffect(() => {
+    if (allJobs) {
+      getAllJobs();
+    }
+  }, [page, search, searchType, sort]);
 
   if (isLoading) {
     return <Loading />;
@@ -34,7 +44,7 @@ const JobsContainer = () => {
       </h5>
       <div>
         {jobs.map((job) => {
-          return <Job key={job._id} {...job} />;
+          return <Job key={job._id} {...job} allJobs={allJobs} />;
         })}
       </div>
       {numOfPages > 1 && <PageBtnContainer />}

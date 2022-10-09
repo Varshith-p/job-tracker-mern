@@ -5,8 +5,8 @@ import SearchContainer from "../../components/SearchContainer";
 const AppliedJobs = () => {
   return (
     <section>
-      <SearchContainer />
-      <JobsContainer />
+      <SearchContainer allJobs={false} />
+      <JobsContainer allJobs={false} />
     </section>
   );
 };

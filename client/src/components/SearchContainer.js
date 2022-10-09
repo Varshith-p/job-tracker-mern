@@ -3,7 +3,7 @@ import { useAppContext } from "../context/context";
 import FormRow from "./FormRow";
 import FormRowSelect from "./FormRowSelect";
 
-const SearchContainer = () => {
+const SearchContainer = ({ allJobs }) => {
   const {
     isLoading,
     search,
@@ -37,12 +37,14 @@ const SearchContainer = () => {
         handleChange={handleSearch}
         className="inline-row"
       />
-      <FormRowSelect
-        name="searchStatus"
-        value={searchStatus}
-        handleChange={handleSearch}
-        list={["all", ...statusOptions]}
-      />
+      {!allJobs && (
+        <FormRowSelect
+          name="searchStatus"
+          value={searchStatus}
+          handleChange={handleSearch}
+          list={["all", ...statusOptions]}
+        />
+      )}
       <FormRowSelect
         name="searchType"
         value={searchType}

@@ -1,9 +1,10 @@
 import React from "react";
 
-const JobInfo = ({ icon, text }) => {
+const JobInfo = ({ icon, iconType, text }) => {
+  console.log(iconType);
   return (
     <div className="job-info">
-      <span className="icon">{icon}</span>
+      <span className={`icon ${iconType}`}>{icon}</span>
       <span className="job-info-text">{text}</span>
     </div>
   );

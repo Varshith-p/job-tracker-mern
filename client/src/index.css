@@ -34,10 +34,15 @@ form {
 }
 
 .banner {
-  background-color: white;
+  background-color: rgb(33, 37, 41);
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.logout-btn:hover {
+  background-color: #10c79c !important;
+  color: #2cb1bc;
 }
 
 .logo {

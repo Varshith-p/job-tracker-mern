@@ -21,7 +21,7 @@ const Banner = () => {
               className="li"
               style={({ isActive }) => {
                 return {
-                  color: isActive ? "black" : "grey",
+                  color: isActive ? "#10c79c" : "grey",
                   fontWeight: isActive ? 500 : 400,
                 };
               }}
@@ -31,7 +31,7 @@ const Banner = () => {
           );
         })}
       </nav>
-      <button className="btn" onClick={logoutUser}>
+      <button className="btn logout-btn" onClick={logoutUser}>
         Logout
       </button>
     </section>

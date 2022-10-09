@@ -21,6 +21,7 @@ const initialState = {
   statusOptions: ["pending", "interview", "declined"],
   status: "pending",
   jobLocation: "hyderabad",
+  allJobs: false,
   search: "",
   searchStatus: "all",
   searchType: "all",
@@ -184,6 +185,27 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const getAllJobs = async () => {
+    const { page, search, searchType, sort } = state;
+    let url = `/listJobs?page=${page}&jobType=${searchType}&sort=${sort}`;
+    if (search) {
+      url = url + `&search=${search}`;
+    }
+    dispatch({ type: "GET_JOBS_BEGIN" });
+    try {
+      const { data } = await authFetch(url);
+      const { jobs, totalJobs, numOfPages } = data;
+      dispatch({
+        type: "GET_JOBS_SUCCESS",
+        payload: { jobs, totalJobs, numOfPages },
+      });
+    } catch (error) {
+      console.log(error);
+      logoutUser();
+    }
+    clearAlert();
+  };
+
   const setEditJob = (id) => {
     console.log(`set edit job: ${id}`);
     dispatch({ type: "SET_EDIT_JOB", payload: { id } });
@@ -244,6 +266,7 @@ const AppProvider = ({ children }) => {
         clearValues,
         createJob,
         getJobs,
+        getAllJobs,
         setEditJob,
         editJob,
         deleteJob,

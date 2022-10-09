@@ -1,5 +1,5 @@
 body {
-  background-color: #f0f4f8;
+  background-color: #e6e6e6;
   font-weight: 400;
   line-height: 1.75;
 }
@@ -111,8 +111,8 @@ form {
   line-height: 1.5em;
   font-size: larger;
   font-weight: bold;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .btn-member {
@@ -195,6 +195,12 @@ h2.jobs-container {
   height: 46vh;
 }
 
+.job-header {
+  /* border: 1px solid #ddffff; */
+  border-bottom: 1px solid #bcccdc;
+  background-color: #ddffff;
+}
+
 .main-icon {
   background-color: #10c79c;
   text-align: center;
@@ -234,6 +240,18 @@ h2.jobs-container {
 .icon {
   color: #829ab1;
   margin: 1em;
+}
+
+.location {
+  color: #2196f3 !important;
+}
+
+.calender {
+  color: #ff9800 !important;
+}
+
+.briefcase {
+  color: #795548 !important;
 }
 
 .job-info-text {
@@ -315,7 +333,7 @@ h2.jobs-container {
   border: 5px solid #829ab1;
   border-top-color: #2cb1bc;
   border-radius: 50%;
-  animation: spinner 2s linear infinite;
+  animation: spinner 1s linear infinite;
   margin: auto;
 }
 

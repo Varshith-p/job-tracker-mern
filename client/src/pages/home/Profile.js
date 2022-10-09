@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Alert from "../../components/Alert";
 import FormRow from "../../components/FormRow";
 import { useAppContext } from "../../context/context";
+import { CgProfile } from "react-icons/cg";
 
 const Profile = () => {
   const { user, showAlert, displayAlert, updateUser, isLoading } =
@@ -25,7 +26,9 @@ const Profile = () => {
         onSubmit={handleSubmit}
         style={{ width: "60vw", maxWidth: "450px" }}
       >
-        <h3>profile </h3>
+        <h3>
+          <CgProfile /> My Account
+        </h3>
         {showAlert && <Alert />}
         <FormRow
           type="text"
