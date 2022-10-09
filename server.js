@@ -4,6 +4,10 @@ require("dotenv").config();
 require("express-async-errors");
 const morgan = require("morgan");
 
+const { dirname } = require("path");
+const { fileUrlToPath } = require("url");
+const path = require("path");
+
 const connectDB = require("./db/connect");
 
 const authRouter = require("./routes/authRoutes");
@@ -18,7 +22,9 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-app.use(express.static("./client/build"));
+const __dirname = dirname(fileUrlToPath(import.meta.url));
+
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 app.use(express.json());
 
@@ -30,7 +36,7 @@ app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 app.use("/api/v1/listJobs", authenticateUser, listJobsRouter);
 
 app.get("*", (req, res) => {
-  res.sendFile("./client/build/index.html");
+  res.sendFile(path.resolve(__dirname, "./client/build", "/index.html"));
 });
 
 app.use(notFoundMiddleware);
