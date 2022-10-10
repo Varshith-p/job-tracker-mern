@@ -4,9 +4,9 @@ require("dotenv").config();
 require("express-async-errors");
 const morgan = require("morgan");
 
-const { dirname } = require("path");
-const { fileUrlToPath } = require("url");
-const path = require("path");
+// const { dirname } = require("path");
+// const { fileUrlToPath } = require("url");
+// const path = require("path");
 
 const connectDB = require("./db/connect");
 
@@ -22,9 +22,9 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-const __dirname = dirname(fileUrlToPath(import.meta.url));
+// const __dirname = dirname(fileUrlToPath(import.meta.url));
 
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+// app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 app.use(express.json());
 
@@ -35,9 +35,9 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 app.use("/api/v1/listJobs", authenticateUser, listJobsRouter);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./client/build", "/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "./client/build", "/index.html"));
+// });
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
