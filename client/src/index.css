@@ -4,15 +4,6 @@ body {
   line-height: 1.75;
 }
 
-form {
-  width: 80vw;
-  margin: 3rem auto;
-  padding: 2rem 2.5rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: -2px 4px 5px -1px rgba(0, 0, 0, 0.2);
-}
-
 .form-label {
   display: block;
   font-size: 0.875rem;
@@ -33,34 +24,9 @@ form {
   border-radius: 0.25rem;
 }
 
-.banner {
-  background-color: rgb(33, 37, 41);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.logout-btn:hover {
-  background-color: #10c79c !important;
-  color: #2cb1bc;
-}
-
 .logo {
   margin: 1rem;
   width: 15rem;
-}
-
-ul {
-  display: inline;
-}
-
-.li {
-  display: inline;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 1rem;
 }
 
 /* .main-content {

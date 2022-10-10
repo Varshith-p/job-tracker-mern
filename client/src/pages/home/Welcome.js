@@ -17,7 +17,7 @@ const Welcome = () => {
           </Link>
         </p>
       </div>
-      <img src={logo} alt="welcome" className="img-main" />
+      <img src={logo} alt="welcome" className="img-welcome" />
     </React.Fragment>
   );
 };

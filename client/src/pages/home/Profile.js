@@ -22,10 +22,7 @@ const Profile = () => {
 
   return (
     <section>
-      <form
-        onSubmit={handleSubmit}
-        style={{ width: "60vw", maxWidth: "450px" }}
-      >
+      <form onSubmit={handleSubmit} className="form">
         <h3>
           <CgProfile /> My Account
         </h3>

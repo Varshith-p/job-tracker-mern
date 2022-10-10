@@ -19,9 +19,9 @@ const Landing = () => {
       <div className="text">
         <h2>Job tracker</h2>
         <p>
-          Welcome to the one stop for all your <br />
-          job needs. Keep track of all your
-          <br /> jobs from one place. <br />
+          Welcome to the one stop for all <br />
+          your job needs. Keep track of <br />
+          all your jobs from one place. <br />
           <Link to="/register" className="btn" style={{ marginTop: "1em" }}>
             Login/Register
           </Link>

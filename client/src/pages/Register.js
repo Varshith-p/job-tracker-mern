@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/context";
 import { useNavigate } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
 import FormRow from "../components/FormRow";
 import Alert from "../components/Alert";
 
@@ -58,7 +60,12 @@ const Register = () => {
 
   return (
     <React.Fragment>
-      <form style={{ width: "60vw", maxWidth: "450px" }}>
+      <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="#">Job tracker</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <form className="form">
         <h3>{values.isMember ? "Login" : "Register"}</h3>
         {showAlert && <Alert />}
         {!values.isMember && (

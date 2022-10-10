@@ -28,7 +28,7 @@ const SearchContainer = ({ allJobs }) => {
   };
 
   return (
-    <form>
+    <form className="big-form">
       <h4>Search form</h4>
       <FormRow
         type="text"

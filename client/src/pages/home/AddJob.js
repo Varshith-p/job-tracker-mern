@@ -41,7 +41,7 @@ const AddJob = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="big-form" onSubmit={handleSubmit}>
       <h3 style={{ marginBottom: "1em" }}>
         {isEditing ? "Edit job" : "Add job"}
       </h3>
