@@ -27,7 +27,7 @@ const Job = ({
           <p>{company}</p>
         </div>
       </header>
-      <section>
+      <section className="job-info-container">
         <JobInfo
           icon={<FaLocationArrow />}
           iconType={"location"}
@@ -35,10 +35,12 @@ const Job = ({
         />
         <JobInfo icon={<FaCalendarAlt />} iconType="calender" text={date} />
         <JobInfo icon={<FaBriefcase />} iconType="briefcase" text={jobType} />
-        {!allJobs && <div className={`status ${status}`}>{status}</div>}
+        {!allJobs && (
+          <div className={`job-info status ${status}`}>{status}</div>
+        )}
       </section>
       {!allJobs && (
-        <footer>
+        <footer className="job-btns">
           <Link
             to="/add-job"
             className="btn edit-btn"

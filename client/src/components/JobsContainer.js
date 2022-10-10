@@ -38,17 +38,17 @@ const JobsContainer = ({ allJobs }) => {
     return <h2 className="jobs-container">No jobs to display...</h2>;
   }
   return (
-    <section className="jobs-container">
-      <h5>
+    <div>
+      <h5 className="jobs-count">
         {totalJobs} Job{jobs.length > 1 && "s"} Found
       </h5>
-      <div>
+      <section className="jobs-container">
         {jobs.map((job) => {
           return <Job key={job._id} {...job} allJobs={allJobs} />;
         })}
-      </div>
-      {numOfPages > 1 && <PageBtnContainer />}
-    </section>
+        {numOfPages > 1 && <PageBtnContainer />}
+      </section>
+    </div>
   );
 };
 
