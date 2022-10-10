@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 require("express-async-errors");
 const morgan = require("morgan");
+const path = require("path");
 
 const helmet = require("helmet");
 const xss = require("xss-clean");
