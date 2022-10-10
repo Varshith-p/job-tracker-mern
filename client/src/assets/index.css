@@ -104,7 +104,7 @@ form {
 }
 
 .text {
-  position: absolute;
+  position: relative;
   left: 4rem;
   top: 10rem;
   letter-spacing: 0.01em;
@@ -341,4 +341,78 @@ h2.jobs-container {
   to {
     transform: rotate(360deg);
   }
+}
+
+.navbar {
+  background-color: rgb(33, 37, 41);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-center {
+  width: 90vw;
+  max-width: 1120px;
+}
+
+.nav-header {
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s ease-in-out all;
+}
+
+.nav-btn {
+  cursor: pointer;
+}
+
+.show-links {
+  height: 314px;
+}
+
+.nav-link {
+  display: block;
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid rgb(124, 121, 121);
+}
+
+@media screen and (min-width: 992px) {
+  .nav-btn {
+    display: none;
+  }
+  .navbar {
+    height: 5rem;
+  }
+  .nav-center {
+    display: flex;
+    align-items: center;
+  }
+  .nav-links {
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  .nav-link {
+    padding: 0;
+    border-top: none;
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+  .logout-btn {
+    margin-left: auto;
+  }
+}
+
+.nav-link:hover {
+  font-weight: 500 !important;
+  border-radius: 0.25em;
 }
