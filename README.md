@@ -4,7 +4,7 @@ Job tracker using MERN stack
 
 ## Demo
 
-Project in action - 🚀
+Project in action - [job-tracker](https://job-tracker-mern.cyclic.app) 🚀
 
 ## Tech Stack
 
@@ -14,7 +14,7 @@ Project in action - 🚀
 
 **Cloud Storage:** MongoDB Atlas
 
-**Deployed on:** Heroku
+**Deployed on:** Cyclic
 
 ## Features
 
@@ -31,7 +31,7 @@ Project in action - 🚀
 Clone the project
 
 ```bash
-  git clone https://github.com/Varshith-p/jobsy-mern
+  git clone https://github.com/Varshith-p/job-tracker-mern
 ```
 
 Go to the project directory
