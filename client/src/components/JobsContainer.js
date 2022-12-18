@@ -35,7 +35,7 @@ const JobsContainer = ({ allJobs }) => {
     return <Loading />;
   }
   if (jobs.length === 0) {
-    return <h2 className="jobs-container">No jobs to display...</h2>;
+    return <h2 className="no-jobs">No jobs to display...</h2>;
   }
   return (
     <div>
@@ -46,8 +46,8 @@ const JobsContainer = ({ allJobs }) => {
         {jobs.map((job) => {
           return <Job key={job._id} {...job} allJobs={allJobs} />;
         })}
-        {numOfPages > 1 && <PageBtnContainer />}
       </section>
+      {numOfPages > 1 && <PageBtnContainer />}
     </div>
   );
 };

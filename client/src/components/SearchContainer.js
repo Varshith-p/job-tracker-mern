@@ -30,40 +30,42 @@ const SearchContainer = ({ allJobs }) => {
   return (
     <form className="big-form">
       <h4>Search form</h4>
-      <FormRow
-        type="text"
-        name="search"
-        value={search}
-        handleChange={handleSearch}
-        className="inline-row"
-      />
-      {!allJobs && (
-        <FormRowSelect
-          name="searchStatus"
-          value={searchStatus}
+      <div className="inputs">
+        <FormRow
+          type="text"
+          name="search"
+          value={search}
           handleChange={handleSearch}
-          list={["all", ...statusOptions]}
+          className="inline-row"
         />
-      )}
-      <FormRowSelect
-        name="searchType"
-        value={searchType}
-        handleChange={handleSearch}
-        list={["all", ...jobTypeOptions]}
-      />
-      <FormRowSelect
-        name="sort"
-        value={sort}
-        handleChange={handleSearch}
-        list={sortOptions}
-      />
-      <button
-        className="btn clear-filters-btn"
-        disabled={isLoading}
-        onClick={handleSubmit}
-      >
-        Clear filters
-      </button>
+        {!allJobs && (
+          <FormRowSelect
+            name="searchStatus"
+            value={searchStatus}
+            handleChange={handleSearch}
+            list={["all", ...statusOptions]}
+          />
+        )}
+        <FormRowSelect
+          name="searchType"
+          value={searchType}
+          handleChange={handleSearch}
+          list={["all", ...jobTypeOptions]}
+        />
+        <FormRowSelect
+          name="sort"
+          value={sort}
+          handleChange={handleSearch}
+          list={sortOptions}
+        />
+        <button
+          className="btn clear-filters-btn"
+          disabled={isLoading}
+          onClick={handleSubmit}
+        >
+          Clear filters
+        </button>
+      </div>
     </form>
   );
 };

@@ -38,27 +38,27 @@ const Job = ({
         {!allJobs && (
           <div className={`job-info status ${status}`}>{status}</div>
         )}
+        {!allJobs && (
+          <div className="job-btns">
+            <Link
+              to="/add-job"
+              className="btn edit-btn"
+              onClick={() => setEditJob(_id)}
+            >
+              Edit
+            </Link>
+            <button
+              type="button"
+              className="btn delete-btn"
+              onClick={() => {
+                deleteJob(_id);
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </section>
-      {!allJobs && (
-        <footer className="job-btns">
-          <Link
-            to="/add-job"
-            className="btn edit-btn"
-            onClick={() => setEditJob(_id)}
-          >
-            Edit
-          </Link>
-          <button
-            type="button"
-            className="btn delete-btn"
-            onClick={() => {
-              deleteJob(_id);
-            }}
-          >
-            Delete
-          </button>
-        </footer>
-      )}
     </article>
   );
 };

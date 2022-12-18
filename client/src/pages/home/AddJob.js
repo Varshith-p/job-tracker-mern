@@ -46,61 +46,62 @@ const AddJob = () => {
         {isEditing ? "Edit job" : "Add job"}
       </h3>
       {showAlert && <Alert />}
+      <div className="inputs">
+        <FormRow
+          type="text"
+          name="position"
+          value={position}
+          handleChange={handleJobInput}
+          className="inline-row"
+        />
+        <FormRow
+          type="text"
+          name="company"
+          value={company}
+          handleChange={handleJobInput}
+          className="inline-row"
+        />
+        <FormRow
+          type="text"
+          name="jobLocation"
+          value={jobLocation}
+          handleChange={handleJobInput}
+          className="inline-row"
+        />
+        <FormRowSelect
+          labelText="status"
+          name="status"
+          value={status}
+          handleChange={handleJobInput}
+          list={statusOptions}
+        />
+        <FormRowSelect
+          labelText="job type"
+          name="jobType"
+          value={jobType}
+          handleChange={handleJobInput}
+          list={jobTypeOptions}
+        />
 
-      <FormRow
-        type="text"
-        name="position"
-        value={position}
-        handleChange={handleJobInput}
-        className="inline-row"
-      />
-      <FormRow
-        type="text"
-        name="company"
-        value={company}
-        handleChange={handleJobInput}
-        className="inline-row"
-      />
-      <FormRow
-        type="text"
-        name="jobLocation"
-        value={jobLocation}
-        handleChange={handleJobInput}
-        className="inline-row"
-      />
-      <FormRowSelect
-        labelText="status"
-        name="status"
-        value={status}
-        handleChange={handleJobInput}
-        list={statusOptions}
-      />
-      <FormRowSelect
-        labelText="job type"
-        name="jobType"
-        value={jobType}
-        handleChange={handleJobInput}
-        list={jobTypeOptions}
-      />
-
-      <div className="inline-row">
-        <button
-          type="submit"
-          className="btn btn-block submit-btn"
-          disabled={isLoading}
-        >
-          Submit
-        </button>
-        <button
-          type="reset"
-          className="btn btn-block clear-btn"
-          onClick={(e) => {
-            e.preventDefault();
-            clearValues();
-          }}
-        >
-          Clear
-        </button>
+        <div className="inline-row btns">
+          <button
+            type="submit"
+            className="btn btn-block submit-btn"
+            disabled={isLoading}
+          >
+            Submit
+          </button>
+          <button
+            type="reset"
+            className="btn btn-block clear-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              clearValues();
+            }}
+          >
+            Clear
+          </button>
+        </div>
       </div>
     </form>
   );

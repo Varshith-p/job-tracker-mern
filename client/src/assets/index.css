@@ -1,3 +1,9 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #f0f4f8;
   font-weight: 400;
@@ -5,6 +11,7 @@ body {
 }
 
 form {
+  /* max-width: 90vw; */
   margin: 3rem auto;
   padding: 2rem 2.5rem;
   background-color: white;
@@ -12,7 +19,7 @@ form {
   box-shadow: -2px 4px 5px -1px rgba(0, 0, 0, 0.2);
 }
 
-.big-form,
+/* .big-form, */
 .form {
   width: 360px;
 }
@@ -39,7 +46,7 @@ form {
   padding-left: 0.5rem;
 }
 
-.inline-row,
+/* .inline-row, */
 .form-box {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -56,13 +63,6 @@ form {
   display: inline-block;
 }
 
-.submit-btn,
-.clear-btn {
-  width: auto !important;
-  margin-left: 32px;
-  margin-right: 32px;
-}
-
 .clear-btn {
   background-color: #243b53 !important;
 }
@@ -70,14 +70,6 @@ form {
 .clear-btn:hover {
   color: white !important;
   background-color: black !important;
-}
-
-.clear-filters-btn {
-  display: block;
-  margin-top: 2em;
-  margin-left: auto;
-  background-color: #f8d7da;
-  color: #842029;
 }
 
 .clear-filters-btn:hover {
@@ -96,18 +88,6 @@ form {
   text-align: center;
   margin-top: 1.5rem;
   font-weight: 490;
-}
-
-.text {
-  position: relative;
-  left: 4rem;
-  top: 10rem;
-  letter-spacing: 0.01em;
-  line-height: 1.5em;
-  font-size: larger;
-  font-weight: bold;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
 }
 
 .btn-member {
@@ -133,15 +113,11 @@ h3 {
 
 .img-main {
   width: 360px;
-  float: right;
-  margin-right: 70px;
+  /* height: 320px; */
 }
 
 .img-welcome {
-  position: absolute;
-  top: 170px;
-  right: 120px;
-  width: 480px;
+  width: 440px;
 }
 
 .error {
@@ -162,128 +138,301 @@ h3 {
   margin-top: 0.5rem;
 }
 
-@media screen and (max-width: 992px) {
-  .img-main,
-  .img-welcome {
-    display: none;
-  }
-  .text {
-    top: 7em;
-    left: 2rem;
-  }
+.landing-main {
+  /* min-height: 100vh; */
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 350px 400px;
+  gap: 20px;
+  align-content: center;
+  justify-content: space-around;
 }
 
-.jobs-count {
-  text-align: center;
-  /* font-weight: bolder; */
-  font-size: xx-large;
+.text {
+  letter-spacing: 0.01em;
+  line-height: 1.5em;
+  font-size: larger;
+  font-weight: bold;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  display: grid;
+  align-content: center;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+div.btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+}
+
+.submit-btn,
+.clear-btn {
+  width: 130px;
+  height: 45px;
+}
+
+.big-form {
+  width: 990px;
+}
+
+.clear-filters-btn {
+  background-color: #f8d7da;
+  color: #842029;
+  height: 40px;
+  width: 290px;
+  margin-top: 30px;
+}
+
+.no-jobs {
+  color: black;
+  width: 990px;
+  margin: 20px auto;
 }
 
 .jobs-container {
-  width: 360px;
-  margin: auto;
-}
-
-h2.jobs-container {
-  width: 85vw;
-  margin: auto;
-  color: black;
+  width: 990px;
+  margin: 16px auto;
+  display: grid;
+  grid-template-columns: 470px 470px;
+  gap: 42px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 
 .job-box {
+  /* width: 340px; */
+  /* margin: 1em auto; */
   background-color: white;
-  width: 340px;
   border-radius: 0.3em;
-  margin: 1em auto;
   box-shadow: 0 2px 6px -2px;
   height: 280px;
 }
 
 .job-header {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #bcccdc;
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em;
-  background-color: #ddffff;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-content: center;
+  border-radius: inherit;
+  height: 100px;
+  background-color: #212529;
 }
 
 .main-icon {
-  background-color: #10c79c;
+  background-color: #2cb1bc;
   text-align: center;
   text-transform: capitalize;
   display: inline-block;
-  margin: 1em;
-  width: 3em;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
   color: white;
-  font-size: larger;
-  line-height: 3em;
+  height: 70px;
+  width: 70px;
+  justify-self: center;
+  border-radius: 3px;
+  font-size: 40px;
 }
 
 .info {
   display: inline-block;
-  position: relative;
-  top: 1em;
+  margin: 0px;
   text-transform: capitalize;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  margin: 1em;
+  height: 60px;
+  color: white;
+  align-self: center;
 }
 
 .job-info-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px 60px 60px;
   align-items: center;
+  justify-items: center;
 }
 
 .job-info {
-  display: inline-block;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  margin-top: 1.5em;
-  margin-left: 0.2em;
-  margin-right: 0.4em;
-  width: 160px;
-}
-
-.icon {
-  color: #829ab1;
-  margin: 1em;
-}
-
-.location {
-  color: #2196f3 !important;
-}
-
-.calender {
-  color: #ff9800 !important;
-}
-
-.briefcase {
-  color: #795548 !important;
-}
-
-.job-info-text {
-  text-transform: capitalize;
+  height: 30px;
+  display: grid;
+  grid-template-columns: 20px 120px;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .status {
   width: 150px;
-  margin-right: 0.5em;
+  grid-template-columns: 1fr;
   border-radius: 0.2em;
   text-align: center;
-  line-height: 2em;
   font-weight: bold;
   background-color: #10c79c;
+}
+
+.job-info-text {
+  text-transform: capitalize;
+  height: 24px;
+  align-self: center;
+}
+
+.job-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.edit-btn {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.delete-btn {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.pages-container {
+  margin: 20px auto;
+  width: 980px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.prev-btn,
+.next-btn {
+  display: inline;
+  background-color: #243b53;
+}
+
+.pages {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.pages button {
+  border-radius: 0px;
+  background-color: white;
+  color: #243b53;
+  box-shadow: none;
+}
+
+button.page-btn-active {
+  color: white;
+  background-color: #243b53;
+}
+
+@media screen and (max-width: 992px) {
+  .landing-main {
+    width: 90vw;
+    margin: 25px auto;
+    grid-template-columns: 300px 350px;
+  }
+  .img-main,
+  .img-welcome {
+    width: 280px;
+  }
+  .inputs {
+    grid-template-columns: 1fr 1fr;
+  }
+  .submit-btn,
+  .clear-btn {
+    width: 143px;
+  }
+  .big-form,
+  .no-jobs {
+    width: 680px;
+  }
+  .jobs-container {
+    width: 680px;
+    grid-template-columns: 320px 320px;
+    gap: 32px;
+  }
+  .job-header {
+    grid-template-columns: 80px 1fr;
+  }
+  .main-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+  }
+  .info {
+    font-size: 12px;
+  }
+  .info > h5 {
+    font-size: 16px;
+  }
+  .job-info-container {
+    grid-template-columns: 142px 142px;
+    justify-content: space-evenly;
+  }
+  .status {
+    width: 145px;
+  }
+  .pages-container {
+    width: 670px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .img-main,
+  .img-welcome {
+    display: none;
+    width: 300px;
+  }
+  .landing-main {
+    min-height: 60vh;
+    grid-template-columns: 1fr;
+    margin: 50px auto;
+    align-items: center;
+  }
+  .big-form,
+  .no-jobs {
+    width: 340px;
+  }
+  .inputs {
+    width: 280px;
+    grid-template-columns: 1fr;
+    column-gap: 0px;
+  }
+  .inline-row {
+    width: 250px;
+  }
+  .submit-btn,
+  .clear-btn {
+    width: 120px;
+  }
+  .clear-filters-btn {
+    width: 250px;
+  }
+  .jobs-container {
+    width: 340px;
+    grid-template-columns: 340px;
+  }
+  .pages-container {
+    width: 340px;
+  }
+}
+
+.jobs-count {
+  text-align: center;
+  font-size: xx-large;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.location {
+  color: #2196f3;
+}
+
+.calender {
+  color: #ff9800;
+}
+
+.briefcase {
+  color: #795548;
 }
 
 .pending {
@@ -299,51 +448,6 @@ h2.jobs-container {
 .declined {
   background-color: rgb(255, 238, 238);
   color: rgb(214, 106, 106);
-}
-
-.job-btns {
-  margin-top: 1em;
-}
-
-.edit-btn {
-  margin-left: 2.5em;
-  background-color: #d1e7dd;
-  color: #0f5132;
-}
-
-.delete-btn {
-  margin-left: 1em;
-  background-color: #f8d7da;
-  color: #842029;
-}
-
-.pages-container {
-  width: 340px;
-  margin: 0.6em;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.prev-btn,
-.next-btn {
-  display: inline;
-}
-
-.pages {
-  display: inline-block;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
-
-.page-btn {
-  background-color: #00000000;
-  color: #2cb1bc;
-}
-.page-btn-active {
-  /* background-color: #2cb1bc; */
-  background-color: #2cb1bc !important;
-  color: white !important;
 }
 
 .loading {
@@ -403,7 +507,7 @@ h2.jobs-container {
   border-top: 1px solid rgb(124, 121, 121);
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 990px) {
   .nav-btn {
     display: none;
   }
@@ -430,57 +534,14 @@ h2.jobs-container {
     margin-left: auto;
   }
   .form {
-    width: 36vw;
-  }
-  .big-form {
-    width: 80vw;
-  }
-  .inline-row,
-  .form-box {
-    margin-right: 0.8em;
-    display: inline-block;
-    width: 22vw;
-  }
-  .clear-filters-btn {
-    display: inline;
-    width: 22vw;
-    margin: 0;
-    position: relative;
-    bottom: 0.3em;
-  }
-  .submit-btn,
-  .clear-btn {
-    width: 90px !important;
-    margin: 0px 20px;
-    position: relative;
-    bottom: 0.3em;
-  }
-  .jobs-container {
-    width: 85vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  .job-box {
-    width: 35vw;
-  }
-  .job-info {
-    margin-left: 1em;
-    margin-right: 1em;
-  }
-  .pages-container {
-    width: 100%;
-    align-items: flex-end;
-    margin: 1em 3em;
+    width: 440px;
   }
 }
 
 .nav-link:hover {
   font-weight: 500 !important;
-  border-radius: 0.25em;
 }
 
-.logout-btn button:hover {
-  background-color: #10c79c !important;
+.nav-links .logout-btn button:hover {
+  background-color: #10c79c;
 }
